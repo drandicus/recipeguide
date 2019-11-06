@@ -26,12 +26,18 @@ class App extends React.Component {
   }
 
   search = () => {
-    var data = generateData(this.state.searchTerm)
-    this.setState({
-      highlight: null,
-      searchTerm: this.state.searchTerm,
-      searchResults: data
-    })
+    fetch('/api/greeting?name=Diego')
+      .then(res => res.json())
+      .then(state => {
+        console.log(state);
+      })
+
+    // var data = generateData(this.state.searchTerm)
+    // this.setState({
+    //   highlight: null,
+    //   searchTerm: this.state.searchTerm,
+    //   searchResults: data
+    // })
   }
 
   handleSearchSelection = (data) => {
