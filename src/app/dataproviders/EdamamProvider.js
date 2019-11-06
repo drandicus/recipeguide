@@ -2,15 +2,15 @@ import axios from 'axios';
 
 const baseUrl = "https://api.edamam.com/search";
 const appId = "a3543cf9";
-const appKey = "31b3c2fade76d6828b674bdd57388131	—";
+const appKey = "31b3c2fade76d6828b674bdd57388131";
 
 //TODO: Ask Jordan how to do this smarter
 function buildRequestUrl(searchTerm) {
   var url = baseUrl;
   url += "?q=" + searchTerm;
   url += "&app_id=" + appId;
-  url += "&app_key" + appKey
-
+  url += "&app_key" + appKey;
+  url += "&callback=foo";
   return url;
 }
 
