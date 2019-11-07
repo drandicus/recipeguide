@@ -1,4 +1,4 @@
-export default function generateData() {
+module.exports.generateTestData = function() {
     var data = [];
 
     for (var i=0; i<24; i++)

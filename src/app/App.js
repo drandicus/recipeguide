@@ -4,8 +4,6 @@ import Header from "./ui/Header";
 import SearchBody from "./ui/SearchBody";
 import HighlightBody from "./ui/HighlightBody";
 
-import generateData from "./dataproviders/Providers";
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -26,18 +24,29 @@ class App extends React.Component {
   }
 
   search = () => {
-    fetch('/api/greeting?name=Diego')
-      .then(res => res.json())
-      .then(state => {
-        console.log(state);
-      })
 
-    // var data = generateData(this.state.searchTerm)
-    // this.setState({
-    //   highlight: null,
-    //   searchTerm: this.state.searchTerm,
-    //   searchResults: data
-    // })
+    fetch(`/api/test`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(state);
+      this.setState({
+        highlight: this.state.highlight,
+        searchTerm: this.state.searchTerm,
+        searchResult: data
+      });
+    })
+
+    //Activate to test API data
+    // fetch(`/api/search?query=${encodeURIComponent(this.state.searchTerm)}`)
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log(state);
+    //     this.setState({
+    //       highlight: this.state.highlight,
+    //       searchTerm: this.state.searchTerm,
+    //       searchResult: data
+    //     });
+    //   })
   }
 
   handleSearchSelection = (data) => {
