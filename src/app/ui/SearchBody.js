@@ -16,6 +16,7 @@ function SearchBody(props) {
                   picture={data.recipe.image}
                   title={data.recipe.label}
                   onClick={props.onClick}
+                  index={index}
                 />
               ))
             }

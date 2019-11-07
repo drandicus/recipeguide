@@ -54,7 +54,7 @@ class App extends React.Component {
 
   handleSearchSelection = (key) => {
     this.setState({
-      highlight: this.searchResult[key],
+      highlight: this.state.searchResults[key],
       searchTerm: this.state.searchTerm,
       searchResults: []
     })
