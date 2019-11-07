@@ -6,7 +6,7 @@ function SearchTile(props) {
     <Columns.Column size={3} kind="parent" onClick={() => props.onClick(props.key)}>
       <Tile>
         <Box>
-          <Image rounded={true} src={props.picture} />
+          <Image rounded={false} src={props.picture} />
         </Box>
       </Tile>
       <Tile>

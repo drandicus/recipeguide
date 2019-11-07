@@ -35,7 +35,7 @@ class App extends React.Component {
       this.setState({
         highlight: this.state.highlight,
         searchTerm: this.state.searchTerm,
-        searchResult: data
+        searchResults: data
       });
     })
 
@@ -53,7 +53,6 @@ class App extends React.Component {
   }
 
   handleSearchSelection = (key) => {
-    console.log(key)
     this.setState({
       highlight: this.searchResult[key],
       searchTerm: this.state.searchTerm,
@@ -71,6 +70,7 @@ class App extends React.Component {
       )
     }
     
+    console.log(this.state)
     if (this.state.searchTerm && this.state.searchResults.length > 0) {
       return (
         <SearchBody

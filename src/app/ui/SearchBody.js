@@ -3,6 +3,7 @@ import { Section, Box, Container, Columns } from 'react-bulma-components';
 import SearchTile from "./SearchTile"
 
 function SearchBody(props) {
+  console.log(props.searchData)
   return (
     <Section>
       <Container>
@@ -12,8 +13,8 @@ function SearchBody(props) {
               props.searchData.map((data, index) => (
                 <SearchTile
                   key={index}
-                  picture={data.image}
-                  title={data.label}
+                  picture={data.recipe.image}
+                  title={data.recipe.label}
                   onClick={props.onClick}
                 />
               ))
