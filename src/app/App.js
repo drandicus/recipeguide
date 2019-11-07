@@ -24,8 +24,12 @@ class App extends React.Component {
   }
 
   search = () => {
-
-    fetch(`/api/test`)
+    fetch(`/api/test`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
     .then(res => res.json())
     .then(data => {
       this.setState({
@@ -48,14 +52,16 @@ class App extends React.Component {
     //   })
   }
 
-  handleSearchSelection = (data) => {
+  handleSearchSelection = (key) => {
+    console.log(key)
     this.setState({
-      highlight: data,
+      highlight: this.searchResult[key],
       searchTerm: this.state.searchTerm,
       searchResults: []
     })
   }
 
+  //TODO Ask jordan for a better way of doing this
   generateBody() {
     if (this.state.highlight) {
       return (
@@ -83,9 +89,7 @@ class App extends React.Component {
   }
 
   render() {
-
     let body = this.generateBody();
-
     return (
       <div>
         <Header 

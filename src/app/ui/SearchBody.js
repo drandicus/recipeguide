@@ -12,8 +12,8 @@ function SearchBody(props) {
               props.searchData.map((data, index) => (
                 <SearchTile
                   key={index}
-                  picture={data.picture}
-                  title={data.title}
+                  picture={data.image}
+                  title={data.label}
                   onClick={props.onClick}
                 />
               ))

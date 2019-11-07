@@ -3,7 +3,7 @@ import { Box, Columns, Tile, Image, Container } from 'react-bulma-components';
 
 function SearchTile(props) {
   return (
-    <Columns.Column size={3} kind="parent" onClick={() => props.onClick(props)}>
+    <Columns.Column size={3} kind="parent" onClick={() => props.onClick(props.key)}>
       <Tile>
         <Box>
           <Image rounded={true} src={props.picture} />
