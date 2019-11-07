@@ -25,7 +25,7 @@ app.get('/api/search', asyncWrapper(async (req, res, _next) => {
   var data = await providerData.generateData(searchTerm);
 
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify(data.data));
+  res.send(JSON.stringify(data.data.hits));
 }));
 
 //------------------------------------------------------------------
@@ -41,7 +41,7 @@ app.get('/api/test', (_req, res, _next) => {
 
 app.get('/api/generatetestdata', asyncWrapper(async (_req, res, _next) => {
   const data = await providerData.generateData("taco");
-  let stringData = JSON.stringify(data.data);
+  let stringData = JSON.stringify(data.data.hits);
   fs.writeFileSync('data.json', stringData);
 
   res.setHeader('Content-Type', 'application/json');

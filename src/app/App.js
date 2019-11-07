@@ -28,7 +28,6 @@ class App extends React.Component {
     fetch(`/api/test`)
     .then(res => res.json())
     .then(data => {
-      console.log(state);
       this.setState({
         highlight: this.state.highlight,
         searchTerm: this.state.searchTerm,
@@ -36,7 +35,7 @@ class App extends React.Component {
       });
     })
 
-    //Activate to test API data
+    //Activate to use real API data
     // fetch(`/api/search?query=${encodeURIComponent(this.state.searchTerm)}`)
     //   .then(res => res.json())
     //   .then(data => {
