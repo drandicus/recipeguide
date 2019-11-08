@@ -7,8 +7,8 @@ function SearchBody(props) {
   return (
     <Section>
       <Container>
-        <Box>
-          <Columns className="is-multiline is-mobile">
+        <Box className="search-body-box">
+          <Columns className="is-mobile">
             {
               props.searchData.map((data, index) => (
                 <SearchTile

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Columns, Tile, Image, Container } from 'react-bulma-components';
+import { Box, Columns, Tile, Image } from 'react-bulma-components';
 
 function SearchTile(props) {
   return (
@@ -7,10 +7,10 @@ function SearchTile(props) {
       <Tile>
         <Box>
           <Image rounded={false} src={props.picture} />
+          <div className="search-title-container">
+            <span className="search-title">{props.title.toUpperCase()}</span>
+          </div>
         </Box>
-      </Tile>
-      <Tile>
-        <Container>{props.title}</Container>
       </Tile>
     </Columns.Column>
   );
