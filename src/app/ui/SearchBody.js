@@ -3,7 +3,6 @@ import { Section, Box, Container, Columns } from 'react-bulma-components';
 import SearchTile from "./SearchTile"
 
 function SearchBody(props) {
-  console.log(props.searchData)
   return (
     <Section>
       <Container>

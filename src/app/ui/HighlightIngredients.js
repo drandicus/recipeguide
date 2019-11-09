@@ -2,7 +2,6 @@ import React from 'react';
 import { Columns, Heading } from 'react-bulma-components';
 
 function HighlightIngredients(props) {
-	console.log(props.ingredients)
 	return (
 		<React.Fragment>
 			<Heading size={4}>Ingredients</Heading>
