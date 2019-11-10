@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section, Container, Columns, Heading } from 'react-bulma-components';
+import { Heading, Table, Columns } from 'react-bulma-components';
 
 class HighlightNutrition extends React.Component {
 
@@ -22,16 +22,32 @@ class HighlightNutrition extends React.Component {
     return (
       <React.Fragment>
         <Heading size={4}>Nutrition</Heading>
-        <div class="control">
-          <label class="radio">
-            <input type="radio" name="nutritionQuantity" value={true}/>
-            Daily
-          </label>
-          <label class="radio">
-            <input type="radio" name="nutritionQuantity" value={false} />
-            Total
-          </label>
-        </div>
+        <Columns className="is-multiline is-mobile">
+          <Columns.Column size={12}>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="nutritionQuantity" onClick={() => this.toggle(true)} />
+                Daily
+              </label>
+              <label class="radio">
+                <input type="radio" name="nutritionQuantity" value={() => this.toggle(false)} />
+                Total
+              </label>
+            </div>
+          </Columns.Column>
+          <Columns.Column size={12} >
+            <Table>
+              <thead>
+
+              </thead>
+              <tbdoy>
+                
+              </tbdoy>
+            </Table>
+          </Columns.Column>
+        </Columns>
+
+
       </React.Fragment>
     )
   }
