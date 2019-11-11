@@ -3,20 +3,36 @@ import { Heading, Table, Columns } from 'react-bulma-components';
 
 class HighlightNutrition extends React.Component {
 
+  supportedDosage = ["mg", "g"];
+
   constructor(props) {
     super(props);
-
+    console.log(props.daily);
+    const nutritionData = this.modelNutritionData(props.daily);
     this.state = {
-      toggleDaily: false
+      isDaily: false,
+      nutritionData: nutritionData
     }
   }
 
-  toggle = (e) => {
-    console.log(e);
-    this.setState({
-      toggleDaily: e.target.value
-    })
+  modelNutritionData(rawData) {
+    console.log(rawData);
+    let filteredData = [];
+    rawData.array.forEach(element => {
+      console.log(element);
+      if (element.unit in this.supportedDosage) {
+        filteredData.push(element);
+      }
+    });
+    return filteredData;
   }
+
+
+  toggle = (e) => {
+    this.setState({
+      isDaily: e
+    })
+  } 
 
   render() {
     return (
@@ -24,13 +40,13 @@ class HighlightNutrition extends React.Component {
         <Heading size={4}>Nutrition</Heading>
         <Columns className="is-multiline is-mobile">
           <Columns.Column size={12}>
-            <div class="control">
-              <label class="radio">
+            <div className="control">
+              <label className="radio">
                 <input type="radio" name="nutritionQuantity" onClick={() => this.toggle(true)} />
                 Daily
               </label>
-              <label class="radio">
-                <input type="radio" name="nutritionQuantity" value={() => this.toggle(false)} />
+              <label className="radio">
+                <input type="radio" name="nutritionQuantity" onClick={() => this.toggle(false)} />
                 Total
               </label>
             </div>
@@ -38,11 +54,15 @@ class HighlightNutrition extends React.Component {
           <Columns.Column size={12} >
             <Table>
               <thead>
-
+                {
+                  this.renderNutritionTableHead()
+                }
               </thead>
-              <tbdoy>
-                
-              </tbdoy>
+              <tbody>
+                {
+                  this.renderNutritionTableBody()
+                }
+              </tbody>
             </Table>
           </Columns.Column>
         </Columns>
