@@ -3,34 +3,18 @@ import { Heading, Table, Columns } from 'react-bulma-components';
 
 class HighlightNutrition extends React.Component {
 
-  supportedDosage = ["mg", "g"];
+  supportedUnits = ["mg", "g"];
 
   constructor(props) {
     super(props);
-    console.log(props.daily);
-    const nutritionData = this.modelNutritionData(props.daily);
     this.state = {
-      isDaily: false,
-      nutritionData: nutritionData
+      nutritionData: props.nutrition
     }
   }
 
-  modelNutritionData(rawData) {
-    console.log(rawData);
-    let filteredData = [];
-    rawData.array.forEach(element => {
-      console.log(element);
-      if (element.unit in this.supportedDosage) {
-        filteredData.push(element);
-      }
-    });
-    return filteredData;
-  }
-
-
   toggle = (e) => {
     this.setState({
-      isDaily: e
+      nutritionData: (e ? this.props.daily : this.props.nutrition)
     })
   } 
 
