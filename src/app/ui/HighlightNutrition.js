@@ -3,7 +3,7 @@ import { Heading, Table, Columns } from 'react-bulma-components';
 
 class HighlightNutrition extends React.Component {
 
-  supportedUnits = ["mg", "g"];
+  supportedUnits = ["mg", "g", "kcal", "%"];
 
   constructor(props) {
     super(props);
@@ -30,7 +30,7 @@ class HighlightNutrition extends React.Component {
                 Daily
               </label>
               <label className="radio">
-                <input type="radio" name="nutritionQuantity" onClick={() => this.toggle(false)} />
+                <input type="radio" name="nutritionQuantity" onClick={() => this.toggle(false)} defaultChecked/>
                 Total
               </label>
             </div>
@@ -38,20 +38,29 @@ class HighlightNutrition extends React.Component {
           <Columns.Column size={12} >
             <Table>
               <thead>
-                {
-                  this.renderNutritionTableHead()
-                }
+                <tr>
+                  <th>Mineral</th>
+                  <th>Quantity</th>
+                </tr>
               </thead>
               <tbody>
                 {
-                  this.renderNutritionTableBody()
+                  Object.entries(this.state.nutritionData).map((keyVal, index) => {
+                    var data = keyVal[1];
+                    if (this.supportedUnits.includes(data.unit)) {
+                      return (
+                        <tr key={index}>
+                          <td>{data.label}</td>
+                          <td>{data.quantity.toFixed(2).toString() + " " + data.unit}</td>
+                        </tr>
+                      )
+                    }             
+                  })
                 }
               </tbody>
             </Table>
           </Columns.Column>
         </Columns>
-
-
       </React.Fragment>
     )
   }
