@@ -6,16 +6,21 @@ function Header(props) {
     <Section>
       <Container>
         <Columns>
-          <Columns.Column className="is-four-fifths">
+          <Columns.Column className="is-1">
+            <div className="home" 
+              onClick={props.returnHome}
+            />
+          </Columns.Column>
+          <Columns.Column className="is-9">
             <input
               className="input"
-              placeholder={(props.searchTerm == null ? "Enter your search term here" : props.searchTerm)}
-              onChange={props.onChange}
+              placeholder={(props.searchTerm == null ? "Search recipe here" : props.searchTerm)}
+              onChange={props.handleSearchChange}
             />
           </Columns.Column>
           <Columns.Column>
             <Button
-              onClick={props.onClick}
+              onClick={props.search}
             >
               Search
             </Button>

@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from "./ui/Header";
-import SearchBody from "./ui/SearchBody";
-import HighlightBody from "./ui/HighlightBody";
+import Body from "./ui/Body"
 import { Footer } from 'react-bulma-components';
 
 class App extends React.Component {
@@ -14,6 +12,14 @@ class App extends React.Component {
       searchTerm: null,
       searchResults: []
     };
+  }
+  
+  returnHome = () => {
+    this.setState({
+      highlight: null,
+      searchTerm: null,
+      searchResults: []
+    })
   }
 
   handleSearchChange = (e) => {
@@ -61,44 +67,19 @@ class App extends React.Component {
     })
   }
 
-  //TODO Ask jordan for a better way of doing this
-  generateBody() {
-    if (this.state.highlight) {
-      return (
-        <HighlightBody
-          highlight={this.state.highlight}
-        />
-      )
-    }
-
-    if (this.state.searchTerm && this.state.searchResults.length > 0) {
-      return (
-        <SearchBody
-          searchData={this.state.searchResults}
-          onClick={this.handleSearchSelection}
-        />
-      );
-
-    }
-
-    return (
-      <div>
-        This is the nobody
-      </div>
-    );
-  }
-
   render() {
-    let body = this.generateBody();
     return (
       <React.Fragment>
-        <Header
+        <Body 
+          highlight={this.state.highlight}
           searchTerm={this.state.searchTerm}
-          onChange={this.handleSearchChange}
-          onClick={this.search}
+          searchResults={this.state.searchResults}
+          handleSearchChange={this.handleSearchChange}
+          handleSearchSelection={this.handleSearchSelection}
+          search={this.search}
+          searchChange={this.searchChange}
+          returnHome={this.returnHome}
         />
-        {body}
-
         <Footer></Footer>
       </React.Fragment>
     );

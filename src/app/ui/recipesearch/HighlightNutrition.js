@@ -54,7 +54,7 @@ class HighlightNutrition extends React.Component {
                           <td>{data.quantity.toFixed(2).toString() + " " + data.unit}</td>
                         </tr>
                       )
-                    }             
+                    }           
                   })
                 }
               </tbody>

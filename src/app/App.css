@@ -1,3 +1,11 @@
+/*
+  Light: #F8F8F8
+  Brown: #F1D6AB
+  Dark Green: #2E3532
+  Light Green: #7E9181
+  Gray: #A0AAB2
+*/
+
 body {
   background-color: #F8F8F8;
   min-height: 100vh;
@@ -33,6 +41,11 @@ body {
 
 .App-link {
   color: #09d3ac;
+}
+
+.home {
+  background-color: #2E3532;
+  height: 100%;
 }
 
 .search-body-box {
